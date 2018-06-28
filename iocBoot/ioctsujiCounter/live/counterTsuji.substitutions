@@ -1,0 +1,75 @@
+## ###########################################################################
+## debug 
+## ###########################################################################
+file "$(TSUJICOUNTER)/tsujiCounterApp/Db/ct08_stringin.template" { pattern
+ {P,                R,     PORT,      CMD,       SCAN      }
+ {09a:COUNTER:,     MOD_S, CNTR01,    MOD_S,       "1 second"}
+}
+
+## ###########################################################################
+## get command for multiple values
+## ########################################################################### 
+file "$(TSUJICOUNTER)/tsujiCounterApp/Db/ct08_arrayin.template" { pattern
+ {P,                R,   PORT,      NELM,      FTVL,        CMD,  PREC,      SCAN      }
+ {09a:COUNTER:,      RDAL,   CNTR01,     9,      "LONG",      RDAL, 6,         ".1 second"}
+ {09a:COUNTER:,      MOD,    CNTR01,     9,    "STRING",      MOD,  1,         ".1 second"}
+}
+
+file "$(TSUJICOUNTER)/tsujiCounterApp/Db/ct08_subarrayin.template" { pattern
+ {P,                R,         PORT,      INP,              MALM,      INDX,        FTVL,        PREC,        SCAN      }
+ {09a:COUNTER:MOD:,     STOPMODE,  CNTR01,  09a:COUNTER:MOD,      9,         5,         "STRING"       1,        "1 second"}
+ {09a:COUNTER:MOD:,     CNTR_STA,  CNTR01,  09a:COUNTER:MOD,      9,         7,         "STRING"       1,        ".1 second"}
+}
+
+file "$(TSUJICOUNTER)/tsujiCounterApp/Db/ct08_countin.template" { pattern
+ {P,                R,         PORT,      INP,              MALM,      INDX,        FTVL,        PREC,        SCAN      }
+ {09a:COUNTER:RDAL:,    CH0,    CNTR01,  09a:COUNTER:RDAL,     9,         0,         "LONG"         1,        ".1 second"}
+ {09a:COUNTER:RDAL:,    CH1,    CNTR01,  09a:COUNTER:RDAL,     9,         1,         "LONG"         1,        ".1 second"}
+ {09a:COUNTER:RDAL:,    CH2,    CNTR01,  09a:COUNTER:RDAL,     9,         2,         "LONG"         1,        ".1 second"}
+ {09a:COUNTER:RDAL:,    CH3,    CNTR01,  09a:COUNTER:RDAL,     9,         3,         "LONG"         1,        ".1 second"}
+ {09a:COUNTER:RDAL:,    CH4,    CNTR01,  09a:COUNTER:RDAL,     9,         4,         "LONG"         1,        ".1 second"}
+ {09a:COUNTER:RDAL:,    CH5,    CNTR01,  09a:COUNTER:RDAL,     9,         5,         "LONG"         1,        ".1 second"}
+ {09a:COUNTER:RDAL:,    CH6,    CNTR01,  09a:COUNTER:RDAL,     9,         6,         "LONG"         1,        ".1 second"}
+ {09a:COUNTER:RDAL:,    CH7,    CNTR01,  09a:COUNTER:RDAL,     9,         7,         "LONG"         1,        ".1 second"}
+ {09a:COUNTER:RDAL:,    CHT,    CNTR01,  09a:COUNTER:RDAL,     9,         8,         "LONG"         1,        ".1 second"} 
+}
+
+
+## ###########################################################################
+## get command for single value
+## ###########################################################################
+file "$(TSUJICOUNTER)/tsujiCounterApp/Db/ct08_longin.template" { pattern
+ {P,             R,         PORT,        CMD,        SCAN      }
+ {09a:COUNTER:,  TPR,      CNTR01,        TPR,        "1 second"}
+ {09a:COUNTER:,  TPRF,     CNTR01,        TPRF,       "1 second"}
+ {09a:COUNTER:,  TMR,      CNTR01,        TMR,        "1 second"}
+ {09a:COUNTER:,  CPR,      CNTR01,        CPR,        "1 second"}
+ {09a:COUNTER:,  CPRF,     CNTR01,        CPRF,       "1 second"}
+
+}
+## ###########################################################################
+## set command w/o argument
+## ###########################################################################
+file "$(TSUJICOUNTER)/tsujiCounterApp/Db/ct08_stringout.template" { pattern
+ {P,                 R,       PORT,        CMD,        VAL}
+ {09a:COUNTER:,      STRT,   CNTR01,       STRT,          0}
+ {09a:COUNTER:,      STOP,   CNTR01,       STOP,          0}
+ {09a:COUNTER:,      CLTM,   CNTR01,       CLTM,          0}
+ {09a:COUNTER:,      ENCS,   CNTR01,       ENCS,          0}
+ {09a:COUNTER:,      ENTS,   CNTR01,       ENTS,          0}
+ {09a:COUNTER:,      DSAS,   CNTR01,       DSAS,          0}
+ {09a:COUNTER:,      CLAL,   CNTR01,       CLAL,          0}
+ {09a:COUNTER:,      CSTRT,  CNTR01,       CSTRT,         0}
+}
+
+## ###########################################################################
+## set command with one argument
+## ###########################################################################
+file "$(TSUJICOUNTER)/tsujiCounterApp/Db/ct08_longout.template" { pattern
+ {P,                 R,        PORT,         CMD }
+ {09a:COUNTER:,      STPR,    CNTR01,       STPR }
+ {09a:COUNTER:,      STPRF,   CNTR01,       STPRF}
+ {09a:COUNTER:,      SCPR,    CNTR01,       SCPR }
+ {09a:COUNTER:,      SCPRF,   CNTR01,       SCPRF}
+}
+

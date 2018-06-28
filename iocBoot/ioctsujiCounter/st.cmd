@@ -1,9 +1,18 @@
 #!../../bin/linux-x86_64/tsujiCounter
 
-## You may have to change tsujiCounter to something else
-## everywhere it appears in this file
+# when every cmd is tested successfully, comment the following line to run all cmd
+#! epicsEnvSet("RUN","#!------")
+
+# run every cmd which has prefix $(RUN), if $(RUN) is unset
+$(RUN="") epicsEnvSet("RUN","")
+epicsEnvSet("TEST","")
+epicsEnvSet("SKIP","#!------")
+epicsEnvSet("UNDONE","#!------")
 
 < envPaths
+
+# Specify proto file search location
+epicsEnvSet("STREAM_PROTOCOL_PATH", "$(TSUJICOUNTER)/tsujiCounterApp/Db")
 
 cd "${TOP}"
 
@@ -11,11 +20,10 @@ cd "${TOP}"
 dbLoadDatabase "dbd/tsujiCounter.dbd"
 tsujiCounter_registerRecordDeviceDriver pdbbase
 
-## Load record instances
-#dbLoadRecords("db/xxx.db","user=hwchenHost")
-
 cd "${TOP}/iocBoot/${IOC}"
+
+$(RUN)< live/counterTsuji.cmd
+
 iocInit
 
-## Start any sequence programs
-#seq sncxxx,"user=hwchenHost"
+date
