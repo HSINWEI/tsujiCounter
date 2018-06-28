@@ -16,10 +16,13 @@ DBD += tsujiCounter.dbd
 tsujiCounter_DBD += base.dbd
 
 # Include dbd files from all support applications:
-#tsujiCounter_DBD += xxx.dbd
+tsujiCounter_DBD += asyn.dbd
+tsujiCounter_DBD += stream.dbd
+tsujiCounter_DBD += drvAsynIPPort.dbd
 
 # Add all the support libraries needed by this IOC
-#tsujiCounter_LIBS += xxx
+tsujiCounter_LIBS += asyn
+tsujiCounter_LIBS += stream
 
 # tsujiCounter_registerRecordDeviceDriver.cpp derives from tsujiCounter.dbd
 tsujiCounter_SRCS += tsujiCounter_registerRecordDeviceDriver.cpp

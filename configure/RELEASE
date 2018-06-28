@@ -21,11 +21,17 @@
 
 TEMPLATE_TOP=$(EPICS_BASE)/templates/makeBaseApp/top
 
-# If using the sequencer, point SNCSEQ at its top directory:
-#SNCSEQ=$(EPICS_BASE)/../modules/soft/seq
+SUPPORT=/blsw/09a/software/epics/3.14.12.7/support
+-include $(TOP)/../configure/SUPPORT.$(EPICS_HOST_ARCH)
+
+STREAM=$(SUPPORT)/stream-R2-7-7
+
+ASYN=$(SUPPORT)/asyn-R4-33
+
+TSUJICOUNTER=$(SUPPORT)/tsujiCounter-master
 
 # EPICS_BASE usually appears last so other apps can override stuff:
-EPICS_BASE=/blsw/09a/software/epics/3.14.12.5/base
+EPICS_BASE=/blsw/09a/software/epics/3.14.12.7/base
 
 # Set RULES here if you want to take build rules from somewhere
 # other than EPICS_BASE:
