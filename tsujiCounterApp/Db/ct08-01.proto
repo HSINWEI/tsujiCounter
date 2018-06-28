@@ -1,0 +1,151 @@
+#Begin
+Terminator = CR LF;
+Separator = " ";
+## ############################################################################
+## 3-2. Read-out commands for counter set and the status of setting
+## ############################################################################
+## 3-2-1. Stop enable by count value
+## Enable to stop count by counter(CH7)
+ENCS {
+    out "ENCS";
+}
+## ---------------------------------------------------------------------------
+## 3-2-2. Stop enable by timer value
+## Enable to stop count by timer
+ENTS {
+    out "ENTS";
+}
+## ---------------------------------------------------------------------------
+## 3-2-3. Stop disable by counter timer
+## Disable to stop count by counter(CH7) or timer
+DSAS {
+    out "DSAS";
+}
+## ---------------------------------------------------------------------------
+## 3-2-4. Inquire of action mode
+## The latest counter mod is read
+MOD {
+    Separator="";
+    out "MOD?";
+    in  "%1c";
+}
+MOD_S {
+    out "MOD?";
+    in  "%s";
+}
+## -------------------------------------------------------------------------------
+## 3-2-5. Setting and readout of preset counter
+## To set preset value dddd..... in decimal to preset counter. Unit is Kcts. Max. 4,294,967
+SCPR {
+    out "SCPR%d";
+}
+## To set preset value dddd..... in decimal to preset counter. Unit is cts. Max 4,294,967,295
+SCPRF {
+    out "SCPRF%d";
+}
+## To read out preset count value
+## Reply Data is 8 digit decimal value. Unit is Kcts.
+CPR {
+    out "CPR?";
+    in  "%d";
+}
+## Reply Data is 8 digit decimal value. Unit is cts.
+CPRF {
+    out "CPRF?";
+    in  "%d";
+}
+## ---------------------------------------------------------------------------
+## 3-2-6 Setting and readout of preset timer
+## To set preset value dddd..... in decimal to timer. Unit is ms. Max. 4,294,967
+STPR {
+    out "STPR%d";
+}
+## To set preset value dddd..... in decimal to timer. Unit is us. Max. 4,294,967,295
+STPRF {
+    out "STPRF%d";
+}
+## To read out preset timer value
+## Reply data is 8 digit decimal value. Unit is ms.
+TPR {
+    out "TPR?";
+    in  "%d";
+}
+## To read out preset timer value
+## Reply data is 8 digit decimal value. Unit is us.
+TPRF {
+    out "TPRF?";
+    in  "%d";
+}
+## ############################################################################
+## 3-3. Commands of counter operation
+## ############################################################################
+## 3-3-1. Counter start
+## Enable counter start
+STRT {
+    out "STRT";
+}
+## ---------------------------------------------------------------------------
+## 3-3-2. Counter stop
+## Enable counter stop
+STOP {
+    out "STOP";
+}
+## ############################################################################
+## 3-4. Read-out and clear commands for counter and timer
+## ############################################################################
+## 3-4-1. Read-out and clear commands for all counter and timer
+## To read all counter channels and timer
+RDAL {
+    out "RDAL?";
+    in  "%d";
+}
+RDAL_S {
+    out "RDAL?";
+    in  "%c";
+}
+## To clear all counter channels and timer
+CLAL {
+    out "CLAL?";
+}
+## ---------------------------------------------------------------------------
+## 3-4-2. Read-out and clear commands for all counter
+## To read count value of channel number xx.
+CTRxx {
+    out "CTR?%02d";
+    in  "%d";
+}
+## To read count value from channel number xx to channel number yy.
+CTRxxyy {
+    out "CTR?%02d%02d";
+    in  "%d";
+}
+## To clear the count value of counter channel xx
+CLCTxx {
+    out "CLCT%02d";
+}
+## To clear the count value from counter channel xx to channel yy.
+CLCTxxyy {
+    out "CLCT%02d%02d";
+}
+## To clear the count value of preset counter channel 07
+CLPC {
+    out "CLPC";
+}
+## ---------------------------------------------------------------------------
+## 3-4-3. Read-out and clear commands for timer
+## To read timer value
+TMR {
+    out "TMR?";
+    in  "%d";
+}
+## To clear timer value
+CLTM {
+    out "CLTM";
+}
+
+## ---
+## combo function: clear channel and start count
+CSTRT {
+    out "CLAL";
+    out "STRT";
+}
