@@ -21,6 +21,11 @@ file "$(TSUJICOUNTER)/tsujiCounterApp/Db/ct08_subarrayin.template" { pattern
  {09a:COUNTER:MOD:,     CNTR_STA,  CNTR01,  09a:COUNTER:MOD,      9,         7,         "STRING"       1,        ".1 second"}
 }
 
+file "$(TSUJICOUNTER)/tsujiCounterApp/Db/ct08_cntr_sta.template" { pattern
+ {P,             R       }
+ {09a:COUNTER:,  CNTR_STA}
+}
+
 file "$(TSUJICOUNTER)/tsujiCounterApp/Db/ct08_countin.template" { pattern
  {P,                R,         PORT,      INP,              MALM,      INDX,        FTVL,        PREC,        SCAN      }
  {09a:COUNTER:RDAL:,    CH0,    CNTR01,  09a:COUNTER:RDAL,     9,         0,         "LONG"         1,        ".1 second"}

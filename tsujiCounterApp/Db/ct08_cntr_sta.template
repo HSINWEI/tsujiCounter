@@ -1,0 +1,7 @@
+record(scalcout, "$(P)$(R)") {
+  field(INAA, "$(P)MOD:CNTR_STA CP")
+  field(CALC, "AA='O'")
+  field(OUT, "$(P)$(R).A")
+  field(OOPT, "On Change")
+}
+
