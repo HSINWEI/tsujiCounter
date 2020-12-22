@@ -50,21 +50,30 @@ file "$(TSUJICOUNTER)/tsujiCounterApp/Db/ct08_longin.template" { pattern
  {09a:COUNTER:,  TMR,      CNTR01,        TMR,        "1 second"}
  {09a:COUNTER:,  CPR,      CNTR01,        CPR,        "1 second"}
  {09a:COUNTER:,  CPRF,     CNTR01,        CPRF,       "1 second"}
-
 }
+
+
+file "$(TSUJICOUNTER)/tsujiCounterApp/Db/ct08_bi.template" { pattern
+ {P,             R,        PORT,        CMD,      ZNAM,    ONAM,    SCAN      }
+ {09a:COUNTER:,  GATEIN,   CNTR01,     GATEIN,     "DS",    "EN",    "1 second"}
+}
+
 ## ###########################################################################
 ## set command w/o argument
 ## ###########################################################################
 file "$(TSUJICOUNTER)/tsujiCounterApp/Db/ct08_stringout.template" { pattern
  {P,                 R,       PORT,        CMD,        VAL}
- {09a:COUNTER:,      STRT,   CNTR01,       STRT,          0}
- {09a:COUNTER:,      STOP,   CNTR01,       STOP,          0}
- {09a:COUNTER:,      CLTM,   CNTR01,       CLTM,          0}
- {09a:COUNTER:,      ENCS,   CNTR01,       ENCS,          0}
- {09a:COUNTER:,      ENTS,   CNTR01,       ENTS,          0}
- {09a:COUNTER:,      DSAS,   CNTR01,       DSAS,          0}
- {09a:COUNTER:,      CLAL,   CNTR01,       CLAL,          0}
- {09a:COUNTER:,      CSTRT,  CNTR01,       CSTRT,         0}
+ {09a:COUNTER:,      STRT,  CNTR01,        STRT,         0}
+ {09a:COUNTER:,      STOP,  CNTR01,        STOP,         0}
+ {09a:COUNTER:,      CLTM,  CNTR01,        CLTM,         0}
+ {09a:COUNTER:,      ENCS,  CNTR01,        ENCS,         0}
+ {09a:COUNTER:,      ENTS,  CNTR01,        ENTS,         0}
+ {09a:COUNTER:,      DSAS,  CNTR01,        DSAS,         0}
+ {09a:COUNTER:,      CLAL,  CNTR01,        CLAL,         0}
+ {09a:COUNTER:,     CSTRT,  CNTR01,       CSTRT,         0}
+ {09a:COUNTER:, GATEIN_DS,  CNTR01,   GATEIN_DS,         0}
+ {09a:COUNTER:, GATEIN_EN,  CNTR01,   GATEIN_EN,         0}
+
 }
 
 ## ###########################################################################

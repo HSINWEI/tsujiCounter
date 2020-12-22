@@ -90,6 +90,26 @@ STRT {
 STOP {
     out "STOP";
 }
+## ---------------------------------------------------------------------------
+## 3-3-3. Enable Gate function and Disable
+## disable GATEIN
+GATEIN_DS {
+    out "GATEIN_DS";
+}
+
+## enable GATEIN
+GATEIN_EN {
+    out "GATEIN_EN";
+}
+
+## Ask GATE input status
+##  GATE function is enable, when the reply is EN.
+##  GATE function is disable, when the reply is DS.
+GATEIN {
+    out "GATEIN?";
+    in "%{DS|EN}";
+}
+
 ## ############################################################################
 ## 3-4. Read-out and clear commands for counter and timer
 ## ############################################################################

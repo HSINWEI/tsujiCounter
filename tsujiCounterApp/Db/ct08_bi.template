@@ -1,0 +1,8 @@
+record(bi, "$(P)$(R)") {
+  field(DTYP, "stream")
+  field(INP, "@ct08-01.proto $(CMD) $(PORT)")
+  field(ZNAM, "$(ZNAM=Disabled)")
+  field(ONAM, "$(ONAM=Enabled)")
+  field(SCAN,"$(SCAN)")
+
+}
