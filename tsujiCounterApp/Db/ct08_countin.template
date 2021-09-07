@@ -11,7 +11,7 @@ record(subArray, "$(P)$(R)_") {
   field(PREC, "$(PREC)")
 }
 
-record(longin, "$(P)$(R)") {
+record(ai, "$(P)$(R)") {
   field(INP, "$(P)$(R)_ PP")
   field(SCAN, "$(SCAN)")
 }

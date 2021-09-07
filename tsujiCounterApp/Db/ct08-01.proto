@@ -117,7 +117,7 @@ GATEIN {
 ## To read all counter channels and timer
 RDAL {
     out "RDAL?";
-    in  "%d";
+    in  "%u";
 }
 RDAL_S {
     out "RDAL?";
